@@ -1,3 +1,3 @@
 #!/usr/bin/python3
-number = 3.14159
-print("{}{}{}".format(name * 3, "\n", name[0:9]))
+str = "Holberton School"
+print("{0}{1}{2}".format(str * 3, "\n", str[0:9]))
