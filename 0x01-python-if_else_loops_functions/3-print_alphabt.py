@@ -1,4 +1,4 @@
 #!/usr/bin/python3
-for char in "abcdefghijklmnopqrstuvwxyz":
-    if not (char == 'q'  char == 'e'):
-        print("{}".format(char), end = "")
+for char in range(ord('a'), ord('z') + 1):
+    if not (char == ord('q') or char == ord('e')):
+        print("{}".format(chr(char)), end="")
