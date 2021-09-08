@@ -7,6 +7,10 @@ if __name__ == "__main__":
     else:
         txt = ":"
 
-    print("{} arguments{}".format(length, txt))
+    if length == 1:
+        txt2 = ""
+    else:
+        txt2 = "s"
+    print("{} argument{}{}".format(length, txt2, txt))
     for i in range(1, length + 1):
         print("{}: {}".format(i, sys.argv[i]))
