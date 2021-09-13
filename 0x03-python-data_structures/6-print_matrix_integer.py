@@ -5,7 +5,7 @@ def print_matrix_integer(matrix=[[]]):
     for row in matrix:
         first = True
         for element in row:
-            if first == False:
+            if first is False:
                 print(" ", end="")
             print("{:d}".format(element), end="")
             first = False
