@@ -12,7 +12,7 @@ int is_palindrome(listint_t **head)
 	int len = 0, i = 0, count;
 	listint_t *current = *head, *final = *head;
 
-	if (head == NULL)
+	if (*head == NULL)
 		return (1);
 
 	/* Encontrar longitud */
