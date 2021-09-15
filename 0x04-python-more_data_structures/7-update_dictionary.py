@@ -4,4 +4,5 @@ print_sorted_dictionary = __import__(
 
 
 def update_dictionary(a_dictionary, key, value):
-    a_dictionary[key] = value
+    d = {key: value}
+    a_dictionary.update(d)
