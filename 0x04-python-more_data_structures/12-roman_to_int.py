@@ -15,4 +15,5 @@ def roman_to_int(roman_string):
             sum = sum - num_list[i+1]
         else:
             sum = sum + num_list[i+1]
+        i += 1
     return sum
