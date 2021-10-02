@@ -2,9 +2,6 @@
 """define empty rectangle"""
 
 
-from typing import AsyncIterable
-
-
 class Rectangle:
     """Make a Rectangle"""
     number_of_instances = 0
