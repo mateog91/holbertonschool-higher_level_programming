@@ -69,6 +69,3 @@ class Rectangle:
                 drawing = drawing + "\n"
 
         return drawing
-
-    def __repr__(self):
-        return 'Rectangle(' + str(self.__width) + ', ' + str(self.__height) + ')'
