@@ -1,0 +1,57 @@
+The '''0-add_integer''' module
+======================
+Using '''0-add_integer'''
+---------------------
+>>> add_integer = __import__('0-add_integer').add_integer
+
+Testing with valid integers
+>>> add_integer(3, 5)
+9
+
+Testing with one float
+>>> add_integer(10.5, -2)
+8
+
+Testing with two floats
+>>> add_integer(1.5, 2.5)
+3
+
+Testing with only one valid argument
+>>> add_integer(10)
+108
+
+Testing for invalid a variable
+>>> add_integer("string", 2)
+Traceback (most recent call last):
+    raise ValueError("a must be an integer")
+ValueError: a must be an integer
+
+Testing for invalid a variable
+>>> add_integer(2, "string")
+Traceback (most recent call last):
+    raise ValueError("a must be an integer")
+ValueError: b must be an integer
+
+Testing only one valid argument
+>>> add_integer(10)
+108
+
+Testing only one invalid argument
+>>> add_integer(None)
+Traceback (most recent call last):
+...
+ValueError: a must be an integer
+
+Testing with "a" as very long number
+>>> add_integer(1e300, 1)
+Traceback (most recent call last):
+...
+OverflowError: a is too large
+
+Testing with "b" as a very long number
+>>> add_integer(1, 1e300)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "/home/mateogarcia/Holberton/Repositories/holbertonschool-higher_level_programming/0x07-python-test_driven_development/0-add_integer.py", line 28, in add_integer
+    raise OverflowError("b is too large")
+OverflowError: b is too large

@@ -1,0 +1,20 @@
+The '''5-text_indentation''' module
+== == == == == == == == == == == == == == =
+Using '''text_indentation'''
+-----------------------------------
+
+>>> text_indentation = __import__('5-text_indentation').text_indentation
+
+test text is a string
+>>> text_indentation(123)
+Traceback (most recent call last):
+   raise TypeError("text must be a string")
+TypeError: text must be a string
+
+>>> text_indentation("   Hello world?  Python is   very cool!  Isn't it?!?  ")
+Hello world?
+<BLANKLINE>
+Python is   very cool!  Isn't it?
+<BLANKLINE>
+!?
+<BLANKLINE>

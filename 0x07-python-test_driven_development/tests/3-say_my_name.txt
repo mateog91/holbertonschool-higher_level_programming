@@ -1,0 +1,38 @@
+The '''3-say_my_name''' module
+== == == == == == == == == == == == == == =
+Using '''say_my_name'''
+-----------------------------------
+>>> matrix_divided = say_my_name = __import__('3-say_my_name').say_my_name
+
+testing for correct output when both strings
+
+>>> say_my_name("Mateo", "Garcia")
+My name is Mateo Garcia
+
+testing correct output when only fist string, none is given for second param
+
+>>> say_my_name("Mateo")
+My name is Mateo 
+
+testing when first not string
+
+>>> say_my_name(1991, "Garcia")
+Traceback (most recent call last):
+ ...
+    raise TypeError("first_name must be a string")
+TypeError: first_name must be a string
+
+testing when second not string
+
+>>> say_my_name("Mateo", 1991)
+Traceback (most recent call last):
+...
+    raise TypeError("last_name must be a string")
+TypeError: last_name must be a string
+
+testing empty string for first param
+>>> say_my_name("", "Garcia")
+Traceback (most recent call last):
+ ...
+    raise TypeError("first_name must be a string")
+TypeError: first_name must be a string
