@@ -1,4 +1,4 @@
-#!/bin/python3
+#!/usr/bin/python3
 ''' This module has only one function: ''say_my_name''
 
     Description:

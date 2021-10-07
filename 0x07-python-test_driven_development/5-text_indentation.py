@@ -1,4 +1,4 @@
-#!/bin/python3
+#!/usr/bin/python3
 """This module has only one function ''text_indentation''
 Description:
 - text must be a string, otherwise raise a TypeError exception with the

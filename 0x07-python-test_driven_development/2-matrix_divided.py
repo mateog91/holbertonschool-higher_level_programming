@@ -1,4 +1,4 @@
-#!/bin/python3
+#!/usr/bin/python3
 """
 This module has one function: ''matrix_dived'' divides all elements of a matrix.
 
