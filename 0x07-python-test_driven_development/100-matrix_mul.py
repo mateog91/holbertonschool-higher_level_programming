@@ -74,13 +74,10 @@ def matrix_mul(m_a, m_b):
     m3 = []
     for i in range(0, len(m_a)):
         m3.append([])
-        current_sum = 0
-        for j in range(0, len(m_b)):
-            current_sum += m_b[j][i] * m_a[i][j]
-        m3[i].append(current_sum)
+        for j in range(0, len(m_b[0])):
+            sum_prod = 0
+            for k in range(0, len(m_a[0])):
+                sum_prod += m_a[i][k] * m_b[k][j]
+            m3[i].append(sum_prod)
 
     return m3
-
-
-print(matrix_mul([[1, 2], [3, 4]], [[1, 2], [3, 4]]))
-print(matrix_mul([[1, 2]], [[3, 4], [5, 6]]))
