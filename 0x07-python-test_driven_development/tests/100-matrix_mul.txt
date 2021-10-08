@@ -2,3 +2,22 @@ The '''100-matrix_mul''' module
 == == == == == == == == == == == == == == =
 Using '''matrix_mul'''
 ----------------------------------
+matrix_mul = __import__('100-matrix_mul').matrix_mul
+
+>>> matrix_mul([[1, 2], [3, 4]], [[1, 2], [3, 4]])
+[[7, 10], [15, 22]]
+
+
+>>> matrix_mul([[1, 2], []], [[1, 2], [3, 4]])
+Traceback (most recent call last):
+     raise TypeError("m_a can't be empty")
+TypeError: m_a can't be empty
+
+>>> matrix_mul([], [[1, 2], [3, 4]])
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "/home/mateogarcia/Holberton/Repositories/holbertonschool-higher_level_programming/0x07-python-test_driven_development/100-matrix_mul.py", line 37, in matrix_mul
+    raise TypeError("m_a can't be empty")
+TypeError: m_a can't be empty
+
+
