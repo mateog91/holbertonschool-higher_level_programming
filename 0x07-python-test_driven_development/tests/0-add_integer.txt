@@ -6,7 +6,7 @@ Using '''0-add_integer'''
 
 Testing with valid integers
 >>> add_integer(3, 5)
-9
+8
 
 Testing with one float
 >>> add_integer(10.5, -2)
