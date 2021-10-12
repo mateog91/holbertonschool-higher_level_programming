@@ -10,9 +10,3 @@ class MyInt(int):
 
     def __ne__(self, x: object):
         return super().__eq__(x)
-
-
-my_i = MyInt(3)
-print(my_i)
-print(my_i == 3)
-print(my_i != 3)
