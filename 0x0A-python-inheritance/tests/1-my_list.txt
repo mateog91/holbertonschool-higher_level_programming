@@ -50,3 +50,10 @@ Test Case for empty list
 >>> my_list = MyList()
 >>> my_list.print_sorted()
 []
+
+Test pycodestyle
+ ----------------
+>>> import pycodestyle
+>>> fchecker = pycodestyle.Checker('1-my_list.py', show_source=True)
+>>> file_errors = fchecker.check_all()
+>>> 
