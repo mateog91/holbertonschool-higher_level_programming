@@ -1,0 +1,43 @@
+The ``1-my_list`` module
+============================
+Using ``print_sorted`` function
+----------------------------
+>>> print_sorted = __import__('1-my_list').MyList
+
+Project sasys to assume inputs are integers so no exceptions are to be raised
+
+Test Cases for only positive numbers
+----------------------------------
+>>> my_list = MyList()
+>>> my_list.append(1)
+>>> my_list.append(2)
+>>> my_list.append(3)
+>>> my_list.append(5)
+>>> my_list.print_sorted()
+[1, 2, 3, 5]
+
+Test Case for only negative
+---------------------------
+>>> my_list = MyList()
+>>> my_list.append(-5)
+>>> my_list.append(-1)
+>>> my_list.append(-99)
+>>> my_list.append(-70)
+>>> my_list.print_sorted()
+[-99, -70, -5, -1]
+
+Test Case for mixed positive and negative
+----------------------------
+>>> my_list = MyList()
+>>> my_list.append(-1024)
+>>> my_list.append(50)
+>>> my_list.append(30)
+>>> my_list.append(-5030)
+>>> my_list.print_sorted()
+[-5030, -1024, 30, 50]
+
+Test Case for empty list
+----------------------------
+>>> my_list = MyList()
+>>> my_list.print_sorted()
+[]
