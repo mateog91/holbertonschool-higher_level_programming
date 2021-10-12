@@ -5,7 +5,7 @@ Using ``print_sorted`` function from MyList Class
 ----------------------------
 Import ``MyList`` from the ``1-my_list.py`` module:
 
->>> print_sorted = __import__('1-my_list').MyList
+>>> MyList = __import__('1-my_list').MyList
 
 --------------
 Test on Succes
