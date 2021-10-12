@@ -15,9 +15,9 @@ class Square(Rectangle):
             size (int): Square's size, must be and integer greater or equal
             than cero
         """
-        Rectangle.integer_validator(self, "size", size)
+        super().integer_validator("size", size)
         super().__init__(size, size)
         self.__size = size
 
-    def area(self, size):
+    def area(self):
         return self.__size * self.__size
