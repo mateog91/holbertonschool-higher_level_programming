@@ -31,9 +31,14 @@ class Square:
     """subclass square"""
 
     def __init__(self, size):
-        self.integer_validator("size", size)
-        super().__init__(size, size)
+        """initialization size of square
+
+        Attributes:
+            size (int): Square's size, must be and integer greater or equal
+            than cero
+        """
+        BaseGeometry.integer_validator(self, "size", size)
         self.__size = size
 
-    def area(self):
-        return self.__size ** 2
+    def area(self, size):
+        return self.__size * self.__size
