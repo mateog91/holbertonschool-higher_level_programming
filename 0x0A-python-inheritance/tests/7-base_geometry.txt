@@ -1,0 +1,41 @@
+The ``7-base_geometry`` module
+============================
+
+Using ``BaseGeometry`` class
+------------------------------
+>>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+
+>>> bg = BaseGeometry()
+
+---------------------
+Test on Value Success
+---------------------
+>>> bg.integer_validator("my_int", 12)
+>>> bg.integer_validator("width", 89)
+
+--------------
+Test on Error
+-------------
+
+Test on negative integers
+------------------------
+>>> bg.integer_validator("Mateo", -98)
+Traceback (most recent call last):
+    ...
+    raise ValueError(f"{name} must be greater than 0")
+ValueError: Mateo must be greater than 0
+
+Test on not integers
+>>> bg.integer_validator("Mateo", 1.5)
+Traceback (most recent call last):
+    ...
+    raise TypeError(f"{name} must be an integer")
+TypeError: Mateo must be an integer
+
+
+Test pycodestyle
+----------------
+>>> import pycodestyle
+>>> fchecker = pycodestyle.Checker('7-base_geometry.py', show_source=True)
+>>> file_errors = fchecker.check_all()
+>>> 
