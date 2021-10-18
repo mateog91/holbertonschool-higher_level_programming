@@ -26,10 +26,13 @@ class Rectangle(Base):
 
     # Over riding private methods
     def __str__(self):
-        string = f"[{self.__class__.__name__}]({self.id}) {self.x}/{self.y} - \
+        name = self.__class__.__name__
+        if name == "Rectangle":
+            string = f"[{name}]({self.id}) {self.x}/{self.y} - \
+{self.width}/{self.height}"
+        elif name == "Saquare":
+            string = f"[{name}]({self.id}) {self.x}/{self.y} - \
 {self.width}"
-        if self.__class__.__name__ == "Rectangle":
-            string += f"/{self.height}"
         return string
 
     # Private fields
