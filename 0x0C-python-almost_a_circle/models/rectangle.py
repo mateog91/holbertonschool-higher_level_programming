@@ -30,7 +30,7 @@ class Rectangle(Base):
         if name == "Rectangle":
             string = f"[{name}]({self.id}) {self.x}/{self.y} - \
 {self.width}/{self.height}"
-        elif name == "Saquare":
+        elif name == "Square":
             string = f"[{name}]({self.id}) {self.x}/{self.y} - \
 {self.width}"
         return string
