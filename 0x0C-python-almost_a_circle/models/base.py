@@ -2,9 +2,6 @@
 """module with class Base"""
 
 
-from models.rectangle import Rectangle
-
-
 class Base:
     """class Base"""
     # creat class attribute number of objects
@@ -75,7 +72,7 @@ class Base:
             Args:
             dictionary (dict):  must be used as **kwargs of the method update
             """
-        if cls.__name__ == Rectangle:
+        if cls.__name__ == "Rectangle":
             new = cls(1, 1)
         else:
             new = cls(1)
