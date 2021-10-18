@@ -2,6 +2,9 @@
 """module with class Base"""
 
 
+from models.rectangle import Rectangle
+
+
 class Base:
     """class Base"""
     # creat class attribute number of objects
@@ -67,12 +70,25 @@ class Base:
 
     @classmethod
     def create(cls, **dictionary):
-        new = cls(1, 1)
+        """Returns an instance with all attributes already set:
+
+            Args:
+            dictionary (dict):  must be used as **kwargs of the method update
+            """
+        if cls.__name__ == Rectangle:
+            new = cls(1, 1)
+        else:
+            new = cls(1)
         new.update(**dictionary)
         return new
 
     @classmethod
     def load_from_file(cls):
+        """ Returns a list of instances:
+
+            Description:
+                Creates instances from JSON file and returns a list with the
+                created objects"""
         filename = cls.__name__ + ".json"
         try:
             with open(filename, mode="r", encoding="utf-8") as myFile:
@@ -84,6 +100,12 @@ class Base:
 
     @classmethod
     def save_to_file_csv(cls, list_objs):
+        """Creates a CSV file with attributes of an object
+
+        Args:
+            list_objs ([Rectangle/Square]): List with instances of Base Class
+                Rectangles or Squares"
+        """
         import csv
         filename = cls.__name__ + ".csv"
         if cls.__name__ == 'Rectangle':
@@ -101,6 +123,12 @@ class Base:
 
     @classmethod
     def load_from_file_csv(cls):
+        """Creates objects from a CSV file with attributes of the objects
+
+
+        Returns:
+            [Rectangle or Square]: List of instances of rectangles squares
+        """
         import csv
         filename = cls.__name__ + ".csv"
         with open(filename, mode="r", newline='') as file:
