@@ -8,6 +8,7 @@ import unittest.mock
 import pycodestyle
 from models.square import Square
 from models.base import Base
+from models.rectangle import Rectangle
 
 
 class Test_Rectangle(unittest.TestCase):
@@ -156,3 +157,57 @@ class Test_Rectangle(unittest.TestCase):
         self.assertIsInstance(rect_expected, Square)
         self.assertIsInstance(output, str)
         os.remove(path + "/" + filename)
+
+    # def test_from_json_string(self):
+    #     """Test from json string"""
+    #     self.assertEqual(Square.from_json_string(None), [])
+    #     self.assertIsNotNone(Square.from_json_string(None))
+#-------------------------------------------------------------------------------------------#
+    def test_from_json_string_emptyList(self):
+        """Test return of a list of the JSON string
+        representation json_string empty"""
+        list_input = []
+        json_list_input = Rectangle.to_json_string(list_input)
+        self.assertEqual(Rectangle.from_json_string(
+            json_list_input), list_input)
+        self.assertIsInstance(
+            Rectangle.from_json_string(json_list_input), list)
+
+    def test_create(self):
+        """Test return of an instance with all attributes already set"""
+        r10 = Rectangle(3, 5, 1, 2, 10)
+        r10_dictionary = r10.to_dictionary()
+        r11 = Rectangle.create(**r10_dictionary)
+        output = "[Rectangle] (10) 1/2 - 3/5\n[Rectangle] (10) 1/2 - 3/5\n"
+        with unittest.mock.patch('sys.stdout', new=io.StringIO()) as _out:
+            print(r10)
+            print(r11)
+            self.assertEqual(_out.getvalue(), output)
+        self.assertIsNot(r10, r11)
+        self.assertNotEqual(r10, r11)
+
+    def test_load_from_file(self):
+        """Test return of a list of instances"""
+        r12 = Rectangle(10, 7, 2, 8, 1)
+        r13 = Rectangle(2, 4, 0, 0, 2)
+        list_rectangles_input = [r12, r13]
+        output = "[Rectangle] (1) 2/8 - 10/7\n[Rectangle] (2) 0/0 - 2/4\n"
+        Rectangle.save_to_file(list_rectangles_input)
+        list_rectangles_output = Rectangle.load_from_file()
+        with unittest.mock.patch('sys.stdout', new=io.StringIO()) as _out:
+            for rect in list_rectangles_output:
+                print("{}".format(rect))
+            self.assertEqual(_out.getvalue(), output)
+        path = os.getcwd()
+        os.remove(path + "/" + "Rectangle.json")
+
+    def test_load_from_file_FileNotFoundError(self):
+        """Test return of an empty list and FileNotFoundError"""
+        self.assertEqual(Rectangle.load_from_file(), [])
+
+    def test_pycodestyle(self):
+        """Test pycodestyle."""
+        style = pycodestyle.StyleGuide(quiet=True)
+        result = style.check_files(['models/rectangle.py'])
+        self.assertEqual(result.total_errors, 0,
+                         "Found code style errors (and warnings).")
