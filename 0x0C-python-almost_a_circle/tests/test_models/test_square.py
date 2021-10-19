@@ -3,6 +3,7 @@
 """
 import unittest
 import io
+import os
 import unittest.mock
 import pycodestyle
 from models.square import Square
@@ -138,3 +139,20 @@ class Test_Rectangle(unittest.TestCase):
         result = style.check_files(['models/square.py'])
         self.assertEqual(result.total_errors, 0,
                          "Found code style errors (and warnings).")
+#---------------------------------------------------------------------------------------#
+
+    def test_to_file(self):
+        "Test to file"
+        json_string = '[{"id": 1, "size": 5, "x": 2, "y": 2}]'
+        rect_expected = Square(5, 2, 2, 1)
+        Square.save_to_file([rect_expected])
+        filename = "Square.json"
+        path = os.getcwd()
+        self.assertTrue(os.path.isfile(path + "/" + filename))
+        with open("Square.json", "r") as file:
+            output = file.read()
+        self.assertEqual(output, json_string)
+        self.assertEqual(file.name, filename)
+        self.assertIsInstance(rect_expected, Square)
+        self.assertIsInstance(output, str)
+        os.remove(path + "/" + filename)

@@ -3,6 +3,7 @@
 """
 import unittest
 import io
+import os
 import unittest.mock
 import pycodestyle
 from models.rectangle import Rectangle
@@ -147,3 +148,27 @@ class Test_Rectangle(unittest.TestCase):
         self.assertIsInstance(Base.to_json_string([]), str)
         self.assertEqual(Base.to_json_string(None), '[]')
     # def test_JSON_str_to_file
+
+    def test_pycodestyle(self):
+        """Test pycodestyle."""
+        style = pycodestyle.StyleGuide(quiet=True)
+        result = style.check_files(['models/square.py'])
+        self.assertEqual(result.total_errors, 0,
+                         "Found code style errors (and warnings).")
+#---------------------------------------------------------------------------------------#
+
+    def test_to_file(self):
+        "Test to file"
+        json_string = '[{"id": 1, "width": 5, "height": 4, "x": 2, "y": 2}]'
+        rect_expected = Rectangle(5, 4, 2, 2, 1)
+        Rectangle.save_to_file([rect_expected])
+        filename = "Rectangle.json"
+        path = os.getcwd()
+        self.assertTrue(os.path.isfile(path + "/" + filename))
+        with open("Rectangle.json", "r") as file:
+            output = file.read()
+        self.assertEqual(output, json_string)
+        self.assertEqual(file.name, filename)
+        self.assertIsInstance(rect_expected, Rectangle)
+        self.assertIsInstance(output, str)
+        os.remove(path + "/" + filename)
