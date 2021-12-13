@@ -1,8 +1,8 @@
 #!/usr/bin/node
 const { argv } = require('process');
 
-let argv1 = 'undifined';
-let argv2 = 'undifined';
+let argv1 = 'undefined';
+let argv2 = 'undefined';
 argv.forEach((val, index) => {
     if (index === 2) {
         argv1 = val;
