@@ -7,9 +7,9 @@ if (isNaN(argv1)) {
   console.log('Missing number of occurrences');
 } else if (argv1 > 0) {
   for (let i = 0; i < argv1; i++) {
-    let arr = []
+    const arr = [];
     for (let j = 0; j < argv1; j++) {
-      arr.push('X')
+      arr.push('X');
     }
     console.log(arr.join(''));
   }
