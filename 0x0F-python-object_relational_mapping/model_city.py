@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""contains the class definition of a State
+"""contains the class definition of a City
     and an instance Base = declarative_base():
 """
 if __name__ == "__main__":
@@ -11,6 +11,8 @@ if __name__ == "__main__":
     Base = declarative_base()
 
     class City(Base):
+        """ Class for City inherited from Base
+        """
         __tablename__ = 'cities'
 
         id = Column(Integer, autoincrement=True,
