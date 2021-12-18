@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+"""Safe agains SQL injunctions"""
 if __name__ == "__main__":
     import sys
     import MySQLdb
