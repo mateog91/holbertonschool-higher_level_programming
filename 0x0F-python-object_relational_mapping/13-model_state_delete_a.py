@@ -2,9 +2,6 @@
 """lists all State objects that contain the letter a from the
 database hbtn_0e_6_usa
 """
-from sys import argv
-
-
 if __name__ == "__main__":
     import sys
     from model_state import Base, State
