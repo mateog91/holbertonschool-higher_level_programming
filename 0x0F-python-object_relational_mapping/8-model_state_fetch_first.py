@@ -14,8 +14,10 @@ if __name__ == "__main__":
     session = Session()
     Base.metadata.create_all(engine)
 
-    instance = session.query(State.id, State.name).first()
-    print(f"{instance[0]}: {instance[1]}")
-
+    instance = session.query(State.id, State.name).order_by(State.id).first()
+    if instance:
+        print(f"{instance[0]}: {instance[1]}")
+    else:
+        print("Nothing")
     session.commit()
     session.close()
