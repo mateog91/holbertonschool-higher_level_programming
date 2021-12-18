@@ -16,7 +16,7 @@ if __name__ == "__main__":
                            passwd=MY_PASS, db=MY_DB)
     cur = conn.cursor()
     cur.execute(
-        f"SELECT * FROM states WHERE name = '{state}' ORDER BY states.id")
+        "SELECT * FROM states WHERE name = '{:s}' ORDER BY states.id".format(state))
     query_rows = cur.fetchall()
     for row in query_rows:
         print(row)
