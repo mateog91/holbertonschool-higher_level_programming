@@ -1,7 +1,7 @@
 #!/usr/bin/python3
-""" script that takes in an argument and displays all values in the states
-    table of hbtn_0e_0_usa where name matches the argument.
-"""
+from sys import argv
+
+
 if __name__ == "__main__":
     import sys
     import MySQLdb
@@ -11,7 +11,13 @@ if __name__ == "__main__":
     conn = MySQLdb.connect(host="localhost", user=MY_USER,
                            passwd=MY_PASS, db=MY_DB)
     cur = conn.cursor()
-    cur.execute("SELECT * FROM states ORDER BY states.id ASC")
+
+    cur.execute(
+        "SELECT cities.id, cities.name, states.name\
+            FROM cities JOIN states ON cities.state_id = states.id\
+            ORDER BY cities.id ASC"
+    )
+
     query_rows = cur.fetchall()
     for row in query_rows:
         print(row)
