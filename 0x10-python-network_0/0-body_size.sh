@@ -1,2 +1,2 @@
 #!/bin/bash
-curl -i 0.0.0.0:5000 | cat | grep Content-Length: | cut -d ":" -f 2-
+curl --head -s "$1" | grep Content-Length: | cut -d ":" -f 2-
