@@ -23,6 +23,3 @@ if __name__ == "__main__":
 
     r = requests.get(url, auth=(user, pswd)).json()
     print(r.get('id'))
-
-    requests.get('https://httpbin.org/basic-auth/user/pass',
-                 auth=('user', 'pass'))
