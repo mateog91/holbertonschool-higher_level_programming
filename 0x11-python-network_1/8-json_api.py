@@ -13,9 +13,6 @@
     You are not allowed to import packages other than requests and sys
     """
 
-from typing import Text
-
-
 if __name__ == "__main__":
     import requests
     import sys
