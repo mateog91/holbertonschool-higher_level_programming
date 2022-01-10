@@ -13,16 +13,16 @@
     """
 
 if __name__ == "__main__":
-import sys
-import requests
+    import sys
+    import requests
 
-url = 'https://api.github.com/user'
+    url = 'https://api.github.com/user'
 
-user = sys.argv[1]
-pswd = sys.argv[2]
+    user = sys.argv[1]
+    pswd = sys.argv[2]
 
-r = requests.get(url, auth=(user, pswd)).json()
-print(r.get('id'))
+    r = requests.get(url, auth=(user, pswd)).json()
+    print(r.get('id'))
 
-requests.get('https://httpbin.org/basic-auth/user/pass',
-             auth=('user', 'pass'))
+    requests.get('https://httpbin.org/basic-auth/user/pass',
+                 auth=('user', 'pass'))
