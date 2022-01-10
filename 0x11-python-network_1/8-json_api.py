@@ -31,5 +31,5 @@ if __name__ == "__main__":
         else:
             print("[{}] {}".format(d['id'], d['name']))
 
-    except ValueError("Not a valid JSON"):
-        pass
+    except ValueError():
+        print("Not a valid JSON")
