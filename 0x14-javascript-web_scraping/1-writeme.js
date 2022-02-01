@@ -5,10 +5,9 @@ const { argv } = require('process');
 const filename = argv[2];
 const content = argv[3];
 
-fs.writeFile(filename, content, 'utf8', err => {
-    if (err) {
-        console.error(err)
-        return
-    }
-    //file written successfully
+fs.writeFile(filename, content, 'utf8', (err) => {
+  if (err) {
+    console.error(err);
+  }
+  // file written successfully
 });
