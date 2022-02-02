@@ -11,10 +11,11 @@ request(url, (error, response, body) => {
   if (error) {
     console.error(error);
   } else {
-    fs.watchFile(filename, body, 'utf8', (err) => {
+    fs.writeFile(filename, body, 'utf-8', (err) => {
       if (err) {
         console.error(err);
       }
+      // file written succesfully
     });
   }
 });
